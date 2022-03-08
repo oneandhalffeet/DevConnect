@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\config"
+    "\\config",
+    "\\models",
+    "\\routes",
+    "\\routes\\api"
   ],
+  "SelectedNode": "\\server.js",
   "PreviewInSolutionExplorer": false
 }
