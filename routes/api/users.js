@@ -1,13 +1,15 @@
 const express  = require("express");
 const router = express.Router();
-
-const bcrypt = require('bcryptjs');
 const gravatar = require('gravatar');
-const User = require("../../models/User");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const config = require('config');
 
-//check express validator for documentation
 const {check, validationResult} = require('express-validator');// can add '/check' if error
+const User = require("../../models/User");
+//check express validator for documentation
 
+//change ok
 //@route    Post api/users
 //@desc     Test route
 //@access   Public
@@ -54,9 +56,22 @@ router.post('/', [
 
             user.password = await bcrypt.hash(password, salt);
             await user.save();
-            //return jsonwebtoken
-
-            res.send('User Registered');
+            
+            const payload={
+                user:{
+                    id: user.id
+                }
+            }
+            console.log("okokok");
+            jwt.sign(
+                payload,
+                config.get('jwtSecret'),
+                {expiresIn: 360000},
+                (err, token) => {
+                    if(err) throw err;
+                    res.json({ token });
+                }
+            );
         } catch (err) {
             console.error(err.message);
             res.status(500).send('Server Error');
