@@ -9,7 +9,6 @@ const {check, validationResult} = require('express-validator');// can add '/chec
 const User = require("../../models/User");
 //check express validator for documentation
 
-//change ok
 //@route    Post api/users
 //@desc     Test route
 //@access   Public
