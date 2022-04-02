@@ -1,3 +1,4 @@
 {
-	"mongoURI": "mongodb+srv://uddesh:uddesh@cluster0.ddcga.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+	"mongoURI": "mongodb+srv://uddesh:uddesh@cluster0.ddcga.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+	"jwtSecret": "mysecrettoen"
 }
