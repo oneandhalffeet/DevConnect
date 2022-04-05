@@ -1,4 +1,6 @@
 {
 	"mongoURI": "mongodb+srv://uddesh:uddesh@cluster0.ddcga.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-	"jwtSecret": "mysecrettoen"
+	"jwtSecret": "mysecrettoen",
+	"githubClientId": "aad8ac1d5fee690d875f",
+	"githubSecret": "9b5fe7fe22f0c1434c306ddcc71973811324a317"
 }
