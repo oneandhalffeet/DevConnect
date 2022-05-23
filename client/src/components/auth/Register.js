@@ -1,6 +1,8 @@
 import React from 'react';
 import { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setAlert } from '../../actions/alert';
 
 export const Register = () => {
   const [formData, setFormData] = useState({
@@ -12,15 +14,16 @@ export const Register = () => {
 
   const { name, email, password, password2 } = formData;
 
+  const dispatch = useDispatch();
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (password !== password2) {
-      console.log('Passwords do not match');
+    if (formData.password !== formData.password2) {
+      dispatch(setAlert('Passwords do not match!', 'danger'));
     } else {
-      console.log(formData + '\n:Success');
+      dispatch(setAlert('Success', 'success'));
     }
   };
   return (
